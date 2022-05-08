@@ -1,11 +1,14 @@
 import React from 'react';
-import Maps from './apis/Maps';
+// import Gmaps from './apis/Gmaps';
 import './App.css';
+import Forms from './components/Forms';
+import MapBox from './components/MapBox';
 
 const App = () => {
   return (
     <div className="App">
-      <Maps />
+      <MapBox/>
+      <Forms />
     </div>
   );
 }
