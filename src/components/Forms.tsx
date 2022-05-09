@@ -4,7 +4,7 @@ import axios from 'axios';
 declare var google: any;
 
 const Forms = () => {
-	const form = document.querySelector('form')!;
+	// const form = document.querySelector('form')!;
 	const addressInput = document.getElementById('address')! as HTMLInputElement;
 
 	const GOOGLE_API_KEY = 'AIzaSyAoxIPsrmzVltncjD-unHrTxVgImTJXxL4';
@@ -14,9 +14,15 @@ const Forms = () => {
 		status: 'OK' | 'ZERO_RESULTS';
 	};
 
-	const searchAddressHandler = async (e: Event) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+	};
+
+	const searchAddressHandler = async (
+		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+	) => {
 		const enteredAddress = addressInput.value;
+		console.log(enteredAddress);
 
 		try {
 			const res = await axios.get<GoogleGeocodingResponse>(
@@ -42,13 +48,15 @@ const Forms = () => {
 		}
 	};
 
-	form.addEventListener('submit', searchAddressHandler);
+	// form.addEventListener('submit', searchAddressHandler);
 
 	return (
 		<div>
-			<form className="form-group">
+			<form className="form-group" onSubmit={handleSubmit}>
 				<input type="text" id="address" placeholder="Search Address" />
-				<button type="submit">Search!</button>
+				<button type="submit" onClick={searchAddressHandler}>
+					Search!
+				</button>
 			</form>
 		</div>
 	);
