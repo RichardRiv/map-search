@@ -12,8 +12,7 @@ type GoogleGeocodingResponse = {
 	status: 'OK' | 'ZERO_RESULTS';
 };
 
-const searchAddressHandler = async (e: Event) => {
-	e.preventDefault();
+export const searchAddressHandler = async () => {
 	const enteredAddress = addressInput.value;
 
 	try {
@@ -35,7 +34,7 @@ const searchAddressHandler = async (e: Event) => {
 
 		new google.maps.Marker({ position: coordinates, map: map });
 	} catch (err: any) {
-    alert(err.message)
+		alert(err.message);
 		console.log(err);
 	}
 };
