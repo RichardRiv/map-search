@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const form = document.querySelector('form')!;
+// const form = document.querySelector('form')!;
 const addressInput = document.getElementById('address')! as HTMLInputElement;
+console.log(`Value: ${addressInput}`);
 
 const GOOGLE_API_KEY = 'AIzaSyAoxIPsrmzVltncjD-unHrTxVgImTJXxL4';
 
@@ -13,7 +14,9 @@ type GoogleGeocodingResponse = {
 };
 
 export const searchAddressHandler = async () => {
+	console.log(`Value: ${addressInput.value}`);
 	const enteredAddress = addressInput.value;
+	console.log(`Entered Address: ${enteredAddress}`);
 
 	try {
 		const res = await axios.get<GoogleGeocodingResponse>(
@@ -39,4 +42,4 @@ export const searchAddressHandler = async () => {
 	}
 };
 
-form.addEventListener('submit', searchAddressHandler);
+// form.addEventListener('submit', searchAddressHandler);
