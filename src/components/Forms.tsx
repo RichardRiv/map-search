@@ -8,10 +8,6 @@ const Forms = () => {
 		e.preventDefault();
 	};
 
-	const handleChange = (e: React.FormEvent<HTMLFormElement>) => {
-		setTerm((e.target as HTMLInputElement).value);
-	};
-
 	return (
 		<div>
 			<form className="form-group" onSubmit={handleSubmit}>
@@ -19,7 +15,7 @@ const Forms = () => {
 					type="text"
 					id="address"
 					placeholder="Search Address"
-					onChange={handleChange}
+					onChange={(e) => setTerm((e.target as HTMLInputElement).value)}
 				/>
 				<button type="submit" onClick={searchAddressHandler}>
 					Search!
