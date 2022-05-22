@@ -1,46 +1,33 @@
 html {
 	font-family: sans-serif;
+	/* background-color: #1e2029; */
 }
 
-#map {
-	width: 90%;
-	height: 20rem;
-	border: 1px solid #ccc;
-	margin: 2rem auto;
+.row {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
 }
 
-form {
-	text-align: center;
-	margin: 2rem auto;
+/* Create two equal columns that sits next to each other */
+.column {
+	float: left;
 }
 
-input {
-	border-radius: 6px 0px 0px 6px;
-	padding: 8px 16px;
+.left {
+	width: 25%;
 }
 
-button {
-	background: #eef4ff;
-	border: solid #eef4ff;
-	border-radius: 0px 6px 6px 0px;
-	color: #a6aab2;
-	padding: 8px 16px;
-	cursor: pointer;
-	transition: background 0.3s ease, border 0.3s ease, color 0.3s;
+.right {
+	width: 75%;
 }
 
-button:focus {
-	outline: none;
+/* Clear floats after the columns */
+.row:after {
+	content: '';
+	display: table;
+	clear: both;
 }
 
-button:hover,
-button:active {
-	background: #678efe;
-	border-color: #678efe;
-	color: white;
-	transition: background 0.3s ease, border 0.3s ease, color 0.3s;
+/* ================================================================= */
+.white-content {
+	background: #e4e4e4;
 }

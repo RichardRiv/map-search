@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { searchAddressHandler } from '../apis/Gmaps';
+import '../components/Forms.css';
 
 const Forms = () => {
 	const [term, setTerm] = useState('');
