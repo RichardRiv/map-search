@@ -7,11 +7,12 @@
 input {
 	border-radius: 6px 0px 0px 6px;
 	padding: 8px 16px;
+	background: #e6e6de;
 }
 
 button {
-	background: #eef4ff;
-	border: solid #eef4ff;
+	background: #e6e6de;
+	border: solid #e6e6de;
 	border-radius: 0px 6px 6px 0px;
 	color: #a6aab2;
 	padding: 8px 16px;
@@ -25,8 +26,8 @@ button:focus {
 
 button:hover,
 button:active {
-	background: #678efe;
-	border-color: #678efe;
+	background: #57bfe6;
+	border-color: #57bfe6;
 	color: white;
 	transition: background 0.3s ease, border 0.3s ease, color 0.3s;
 }

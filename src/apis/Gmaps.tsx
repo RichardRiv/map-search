@@ -22,7 +22,7 @@ export const searchAddressHandler = async () => {
 		);
 
 		if (res.data.status !== 'OK') {
-			throw new Error('Could not fetch location!');
+			throw new Error('Could not fetch location! Try a different address!');
 		}
 
 		const coordinates = res.data.results[0].geometry.location;

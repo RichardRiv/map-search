@@ -1,6 +1,6 @@
 html {
 	font-family: sans-serif;
-	/* background-color: #1e2029; */
+	background-color: #3d414a;
 }
 
 .row {
@@ -27,7 +27,14 @@ html {
 	clear: both;
 }
 
-/* ================================================================= */
-.white-content {
-	background: #e4e4e4;
+@media only screen and (max-width: 1200px) {
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.left,
+	.right {
+		flex: 100%;
+	}
 }
