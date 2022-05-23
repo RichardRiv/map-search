@@ -1,19 +1,17 @@
 import axios from 'axios';
 
-const form = document.querySelector('form')!;
-const addressInput = document.getElementById('address')! as HTMLInputElement;
-
-const GOOGLE_API_KEY = 'AIzaSyAoxIPsrmzVltncjD-unHrTxVgImTJXxL4';
-
 declare var google: any;
 
-type GoogleGeocodingResponse = {
-	results: { geometry: { location: { lat: number; lng: number } } }[];
-	status: 'OK' | 'ZERO_RESULTS';
-};
+export const searchAddressHandler = async () => {
+	const addressInput = document.getElementById('address')! as HTMLInputElement;
 
-const searchAddressHandler = async (e: Event) => {
-	e.preventDefault();
+	const GOOGLE_API_KEY = 'AIzaSyAoxIPsrmzVltncjD-unHrTxVgImTJXxL4';
+
+	type GoogleGeocodingResponse = {
+		results: { geometry: { location: { lat: number; lng: number } } }[];
+		status: 'OK' | 'ZERO_RESULTS';
+	};
+
 	const enteredAddress = addressInput.value;
 
 	try {
@@ -24,7 +22,7 @@ const searchAddressHandler = async (e: Event) => {
 		);
 
 		if (res.data.status !== 'OK') {
-			throw new Error('Could not fetch location!');
+			throw new Error('Could not fetch location! Try a different address!');
 		}
 
 		const coordinates = res.data.results[0].geometry.location;
@@ -35,9 +33,9 @@ const searchAddressHandler = async (e: Event) => {
 
 		new google.maps.Marker({ position: coordinates, map: map });
 	} catch (err: any) {
-    alert(err.message)
+		alert(err.message);
 		console.log(err);
 	}
 };
 
-form.addEventListener('submit', searchAddressHandler);
+// form.addEventListener('submit', searchAddressHandler);
